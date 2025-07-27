@@ -1,1 +1,89 @@
-/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+
+:r.rating-group input:checked~.rating-star {
+    color: #facc15;
+}
+
+label:has(input[type="radio"]:checked) {
+    background-color: var(--primary-600);
+    border-color: var(--primary-600);
+    color: white;
+}
+
+body {
+    --brand-primary: #0c77f2;
+    --brand-secondary: #e9f2ff;
+    --brand-background: #f7f9fc;
+    --foreground-primary: #111418;
+    --foreground-secondary: #60748a;
+    --foreground-tertiary: #9babbc;
+    --border-primary: #e3e8ef;
+    --status-completed: #16a34a;
+    --status-completed-bg: #f0fdf4;
+    --status-scheduled: #ea580c;
+    --status-scheduled-bg: #fff7ed;
+    --status-cancelled: #dc2626;
+    --status-cancelled-bg: #fef2f2;
+    --radio-dot-svg: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+    --select-button-svg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' fill='rgb(96,117,138)' viewBox='0 0 256 256'%3e%3cpath d='M215.39,92.61a8,8,0,0,0-11.38,0L128,168.69,52,92.61a8,8,0,0,0-11.38,11.38l80,80a8,8,0,0,0,11.38,0l80-80A8,8,0,0,0,215.39,92.61Z'%3e%3c/path%3e%3c/svg%3e");
+    --primary-50: #f0f6ff;
+    --primary-100: #e0edff;
+    --primary-200: #c2e0ff;
+    --primary-300: #a3d0ff;
+    --primary-400: #85beff;
+    --primary-500: #66adff;
+    --primary-600: #0b79ee;
+    --primary-700: #0066ff;
+    --primary-800: #0052cc;
+    --primary-900: #003d99;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #dbe0e6;
+    --card-background: #ffffff;
+}
+
+.rating-group:hover .rating-star {
+    color: #facc15;
+}
+
+.rating-star:hover~.rating-star {
+    color: #d1d5db;
+}
+
+.rating-group input:checked~.rating-star {
+    color: #facc15;
+}
+
+body {
+    min-height: max(884px, 100dvh);
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.form-input {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid #d1d5db;
+    background-color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #111827;
+
+    &::placeholder {
+        color: #9ca3af;
+    }
+
+    &:focus {
+        border-color: var(--primary-600);
+        outline: none;
+        box-shadow: 0 0 0 1px var(--primary-600);
+    }
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

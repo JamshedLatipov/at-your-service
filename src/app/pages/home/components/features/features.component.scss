@@ -1,0 +1,55 @@
+.features {
+    background: #fff;
+    padding: 64px 0;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    h2 {
+        font-family: 'Inter', sans-serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #22223B;
+        margin-bottom: 40px;
+    }
+
+    .features-grid {
+        display: flex;
+        gap: 32px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .feature-card {
+        background: #F8F8FB;
+        border-radius: 20px;
+        box-shadow: 0 4px 24px rgba(91, 46, 145, 0.08);
+        padding: 32px 24px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 18px;
+            color: #5B2E91;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #22223B;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #4A4E69;
+            font-size: 1rem;
+            margin: 0;
+        }
+    }
+}

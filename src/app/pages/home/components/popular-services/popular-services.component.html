@@ -1,0 +1,18 @@
+<h2 class="text-[#121416] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Popular
+    services</h2>
+<div class="pb-3">
+    <div class="flex overflow-x-auto scrollbar-hide border-b border-[#dde1e3] px-4 gap-8">
+        <a *ngFor="let service of services"
+            class="flex flex-col items-center justify-center border-b-[3px] gap-2 pb-[7px] pt-2.5"
+            [class.border-b-[#121416]]="service.isActive" [class.border-b-transparent]="!service.isActive"
+            [class.text-[#121416]]="service.isActive" [class.text-[#6a7681]]="!service.isActive" href="#">
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-10"
+                [style.background-image]="'url(' + service.imageUrl + ')'">
+            </div>
+            <p class="text-sm font-bold leading-normal tracking-[0.015em] truncate max-w-[80px] text-center"
+                [class.text-[#121416]]="service.isActive" [class.text-[#6a7681]]="!service.isActive">
+                {{service.name}}
+            </p>
+        </a>
+    </div>
+</div>

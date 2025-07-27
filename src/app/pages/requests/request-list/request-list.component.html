@@ -1,0 +1,80 @@
+<div class="relative flex size-full min-h-screen flex-col justify-between overflow-x-hidden bg-gray-50">
+
+
+    <main class="p-4 space-y-4">
+        <!-- Filters section -->
+        <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-bold text-gray-900">Filters</h2>
+                <button class="text-sm font-semibold text-gray-500" (click)="resetFilters()">Reset</button>
+            </div>
+            <div class="flex space-x-3 overflow-x-auto pb-3">
+                <div class="relative">
+                    <select [(ngModel)]="selectedService"
+                        class="appearance-none w-full min-w-[120px] rounded-lg border border-gray-300 bg-white py-2.5 pl-4 pr-10 text-gray-900 shadow-sm">
+                        <option value="">Service Type</option>
+                        <option *ngFor="let service of serviceTypes" [value]="service">{{service}}</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="relative">
+                    <select [(ngModel)]="selectedLocation"
+                        class="appearance-none w-full min-w-[120px] rounded-lg border border-gray-300 bg-white py-2.5 pl-4 pr-10 text-gray-900 shadow-sm">
+                        <option value="">Location</option>
+                        <option *ngFor="let location of locations" [value]="location.value">{{location.label}}</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Request cards -->
+        <div *ngFor="let request of filteredRequests" class="rounded-xl border border-gray-200 bg-white shadow-sm">
+            <div class="p-4">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h2 class="text-lg font-bold text-gray-900">{{request.title}}</h2>
+                        <div class="mt-2 flex items-center gap-4">
+                            <div class="flex items-center gap-1 text-sm text-gray-600">
+                                <span class="font-medium">{{request.service}}</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-sm text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 256 256">
+                                    <path
+                                        d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88,88,0,1,0,88,88A88.1,88.1,0,0,0,128,16Zm0,160a72,72,0,1,1,72-72A72.08,72.08,0,0,1,128,176Z" />
+                                </svg>
+                                <span>{{request.location}}</span>
+                            </div>
+                            <div class="flex items-center gap-1 text-sm text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 256 256">
+                                    <path
+                                        d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM48,48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48ZM208,208H48V96H208V208Z" />
+                                </svg>
+                                <span>{{request.date}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 text-sm text-gray-700">{{request.description}}</p>
+            </div>
+            <div class="border-t border-gray-200 bg-gray-50 px-4 py-3">
+                <button
+                    class="w-full rounded-full bg-[var(--primary-600)] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[var(--primary-700)] focus:outline-none focus:ring-2 focus:ring-[var(--primary-500)] focus:ring-offset-2">
+                    Pick Up Request
+                </button>
+            </div>
+        </div>
+    </main>
+</div>
