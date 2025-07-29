@@ -1,0 +1,7 @@
+:host {
+    .star-label:has(input[type=radio]:checked) {
+        background-color: transparent;
+        border-color: transparent;
+        color: inherit;
+    }
+}

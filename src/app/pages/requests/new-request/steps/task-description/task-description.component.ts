@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { StepperService } from '../../../../../services/stepper.service';
 
 @Component({
-    selector: 'app-task-description',
-    standalone: true,
-    imports: [CommonModule, FormsModule],
-    template: `
+  selector: 'app-task-description',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: `
     <div class="space-y-4">
       <h2 class="text-2xl font-bold text-[var(--text-primary)]">What do you need help with?</h2>
       <p class="text-base text-[var(--text-secondary)]">Provide a detailed description so professionals can give you an accurate quote.</p>
@@ -38,5 +39,10 @@ import { FormsModule } from '@angular/forms';
   `
 })
 export class TaskDescriptionComponent {
-    description = '';
+  description = '';
+
+  constructor(
+    private readonly stepperService: StepperService,
+  ) { }
+
 }

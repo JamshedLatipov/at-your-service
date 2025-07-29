@@ -1,0 +1,62 @@
+<div class="relative flex size-full min-h-screen flex-col justify-between overflow-x-hidden">
+    <main class="flex-grow">
+        <section class="py-8 sm:py-12">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div class="flex items-center gap-2 rounded-lg bg-[var(--brand-secondary)] px-4 py-2">
+                        <svg class="h-5 w-5 text-[var(--brand-primary)]" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <p class="text-sm font-medium text-[var(--brand-primary)]">Showing 8 results</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <button
+                            class="flex w-full items-center justify-center gap-2 rounded-md border border-[var(--brand-border)] px-4 py-2 text-sm font-medium text-[var(--brand-text-primary)] hover:bg-[var(--brand-surface)] sm:w-auto">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                            Filters
+                        </button>
+                        <div class="relative w-full sm:w-auto">
+                            <select
+                                class="w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-sm focus:border-[var(--brand-primary)] focus:outline-none focus:ring-[var(--brand-primary)]"
+                                id="sort" name="sort">
+                                <option>Sort by: Recommended</option>
+                                <option>Sort by: Rating</option>
+                                <option>Sort by: Most Reviews</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <div
+                        class="overflow-hidden rounded-lg border border-[var(--brand-border)] bg-[var(--brand-background)] shadow-sm">
+                        <img alt="John Doe - Plumber" class="h-48 w-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkNFwEtkZzq_6witghVJlGgG2OBh_l_DKIMxj0d-Dc_M1IQ-RuNuQPdvoEDkQbFlr3ixLeKj-UtumYrERxnnmI4b0mxRo1cq16eoFSceWcOW_t53iSrz6jZpCicB90MWr1LapZjuQntyhhfOPsC4x_Cu5Pc-IuEb-28y49b8fJRM6lDTvoXbZC-39YPWxoryQ35PYi0wJc43Et68bj_64-dAqnrpnXTW3vux2qV2U4QLS60WJwVJjAjIQ7KTNktM-jIMfkWh1Jig" />
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-[var(--brand-text-primary)]">John Doe</h3>
+                            <p class="text-sm text-[var(--brand-text-secondary)]">Plumber</p>
+                            <div class="mt-2 flex items-center">
+                                <div class="flex items-center text-yellow-400">
+                                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <span class="ml-1 text-sm text-[var(--brand-text-secondary)]">4.8 (120 reviews)</span>
+                            </div>
+                            <a class="mt-4 block w-full rounded-md bg-[var(--brand-primary)] px-4 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
+                                href="#">View Profile</a>
+                        </div>
+                    </div>
+                    <!-- Repeat similar blocks for other professionals -->
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

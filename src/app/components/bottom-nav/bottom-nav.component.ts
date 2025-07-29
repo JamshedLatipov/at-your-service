@@ -1,44 +1,54 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ROUTES, AppRoutes } from '../../core/constants/routes';
+import { ROUTES } from '../../core/constants/routes';
+import { TranslationService } from '../../core/i18n/translation.service';
+import { Translations } from '../../core/i18n/translation.types';
 
 interface NavItem {
   path: string;
   icon: string;
-  label: string;
+  label: 'home' | 'search' | 'requests' | 'profile' | 'settings';
+  isAccent?: boolean;
 }
 
 @Component({
   selector: 'app-bottom-nav',
   standalone: true,
-  imports: [RouterModule, CommonModule],
-  templateUrl: './bottom-nav.component.html',
-  styleUrl: './bottom-nav.component.scss'
+  imports: [CommonModule, RouterModule],
+  templateUrl: './bottom-nav.component.html'
 })
-export class BottomNavComponent {
+export class BottomNavComponent implements OnInit {
   readonly navItems: NavItem[] = [
-    { path: ROUTES.HOME, icon: 'house', label: 'Home' },
-    { path: ROUTES.SEARCH, icon: 'magnifying-glass', label: 'Search' },
-    { path: ROUTES.ORDERS, icon: 'receipt', label: 'Orders' },
-    { path: ROUTES.PROFILE, icon: 'user', label: 'Profile' }
+    { path: ROUTES.HOME, icon: 'house', label: 'home' },
+    { path: ROUTES.SEARCH, icon: 'magnifying-glass', label: 'search' },
+    { path: ROUTES.REQUEST_NEW, icon: 'plus', label: 'requests', isAccent: true },
+    { path: ROUTES.PROFILE, icon: 'user', label: 'profile' },
+    { path: ROUTES.SETTINGS, icon: 'gear', label: 'settings' }
   ];
 
-  private _activeIndex = 0;
+  activeItem: NavItem | null = null;
+  translations?: Translations;
 
-  get activeIndex(): number {
-    return this._activeIndex;
+  constructor(
+    private readonly router: Router,
+    private readonly translationService: TranslationService
+  ) {
+    this.activeItem = this.navItems.find(item => this.router.url.startsWith(item.path)) || this.navItems[0];
   }
 
-  constructor(private readonly router: Router) { }
+  ngOnInit(): void {
+    this.translationService.getTranslations().subscribe(translations => {
+      this.translations = translations;
+    });
+  }
 
-  onNavClick(index: number): void {
-    if (index < 0 || index >= this.navItems.length) {
-      return;
-    }
+  onNavClick(item: NavItem): void {
+    this.activeItem = item;
+    this.router.navigate([item.path]);
+  }
 
-    this._activeIndex = index;
-    const { path } = this.navItems[index];
-    this.router.navigate([path]);
+  getTranslation(label: NavItem['label']): string {
+    return (this.translations?.navigation as any)[label] || label;
   }
 }

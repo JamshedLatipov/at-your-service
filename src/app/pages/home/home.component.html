@@ -1,12 +1,128 @@
-<div class="relative flex size-full flex-col bg-white overflow-x-hidden">
-    <div>
-        <app-search></app-search>
-        <app-popular-services></app-popular-services>
-        <app-hero-banner></app-hero-banner>
-        <app-top-professionals></app-top-professionals>
-        <app-reviews></app-reviews>
-    </div>
-    <div>
-        <app-cta-button></app-cta-button>
-    </div>
+<div
+    class="relative flex size-full min-h-screen flex-col justify-between bg-[var(--brand-background)] text-[var(--brand-text-primary)] overflow-x-hidden">
+    <main class="flex-grow">
+        <!-- Hero Section with Search -->
+        <section class="bg-[var(--brand-secondary)] py-12 sm:py-16 w-full">
+            <div class="mx-auto w-full px-0 sm:px-0 lg:px-0">
+                <div class="text-center px-4 sm:px-6 lg:px-8">
+                    <h1 class="text-4xl font-extrabold tracking-tight text-[var(--brand-text-primary)] sm:text-5xl"
+                        *ngIf="translations">
+                        {{ translations.hero.title1 }} <span class="text-[var(--brand-primary)]">{{
+                            translations.hero.pro }}</span> {{ translations.hero.title2 }}
+                    </h1>
+                    <p class="mt-4 text-xl text-[var(--brand-text-secondary)] max-w-3xl mx-auto" *ngIf="translations">
+                        {{ translations.hero.subtitle }}
+                    </p>
+                </div>
+                <div class="mt-10 mx-auto max-w-2xl overflow-hidden px-4 sm:px-6 lg:px-8">
+                    <div class=" p-4 sm:p-6 flex flex-col sm:flex-row gap-4">
+                        <!-- Service Selection Dropdown -->
+                        <div class="flex-1 relative">
+                            <select id="service" name="service"
+                                class="block w-full appearance-none rounded-md border-gray-300 py-3 px-4 pr-10 shadow-sm bg-white focus:border-[var(--brand-primary)] focus:ring-[var(--brand-primary)] select-with-custom-arrow">
+                                <option value="" disabled selected>{{ translations?.search?.servicePrompt }}</option>
+                                <option value="plumbing">{{ translations?.services?.plumbing }}</option>
+                                <option value="electrical">{{ translations?.services?.electrical }}</option>
+                                <option value="cleaning">{{ translations?.services?.cleaning }}</option>
+                                <option value="handyman">{{ translations?.services?.handyman }}</option>
+                                <option value="painting">{{ translations?.services?.painting }}</option>
+                                <option value="landscaping">{{ translations?.services?.landscaping }}</option>
+                            </select>
+                            <div
+                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500">
+                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path clip-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        fill-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Location Input -->
+                        <div class="flex-1 relative">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <input type="text" id="location" name="location" placeholder="Enter your location"
+                                class="block w-full rounded-md border-gray-300 py-3 pl-10 pr-4 shadow-sm bg-white focus:border-[var(--brand-primary)] focus:ring-[var(--brand-primary)]">
+                        </div>
+
+                        <!-- Search Button -->
+                        <div class="flex items-center">
+                            <button type="submit"
+                                class="w-full h-[46px] sm:w-auto bg-[var(--brand-primary)] py-3 px-6 rounded-md text-white font-medium hover:bg-blue-700 transition-colors shadow-sm">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Services Section -->
+        <section class="py-16 sm:py-20">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight" *ngIf="translations">{{
+                        translations.popularServices.title }}</h2>
+                    <p class="mt-4 text-lg text-[var(--brand-text-secondary)]" *ngIf="translations">{{
+                        translations.popularServices.subtitle }}
+                    </p>
+                </div>
+                <app-popular-services></app-popular-services>
+                <div class="text-center mt-8">
+                    <a routerLink="/find-master"
+                        class="inline-flex items-center text-sm font-medium text-[var(--brand-primary)]">
+                        {{ translations?.popularServices?.viewMore }}
+                        <svg class="ml-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Professionals Section -->
+        <section class="bg-[var(--brand-surface)] py-16 sm:py-20">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight" *ngIf="translations">{{ translations.experts.title }}
+                    </h2>
+                    <p class="mt-4 text-lg text-[var(--brand-text-secondary)]" *ngIf="translations">{{
+                        translations.experts.subtitle }}</p>
+                </div>
+                <app-top-professionals></app-top-professionals>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="py-16 sm:py-20 bg-white">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight" *ngIf="translations">{{ translations.reviews.title }}
+                    </h2>
+                    <p class="mt-4 text-lg text-[var(--brand-text-secondary)]" *ngIf="translations">{{
+                        translations.reviews.subtitle }}</p>
+                </div>
+                <app-reviews></app-reviews>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-[var(--brand-primary)]">
+            <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20 text-center">
+                <h2 class="text-3xl font-extrabold tracking-tight text-white mb-6" *ngIf="translations">{{
+                    translations.cta.title }}</h2>
+                <p class="text-xl text-blue-100 mb-10" *ngIf="translations">{{ translations.cta.subtitle }}</p>
+                <app-cta-button></app-cta-button>
+            </div>
+        </section>
+    </main>
 </div>

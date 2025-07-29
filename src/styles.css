@@ -1,0 +1,139 @@
+/* Global variables */
+:root {
+    --brand-primary: #1978e5;
+    --brand-secondary: #f0f7ff;
+    --brand-text-primary: #111827;
+    --brand-text-secondary: #6b7280;
+    --brand-background: #ffffff;
+    --brand-surface: #f9fafb;
+    --brand-border: #e5e7eb;
+    --brand-error: #ef4444;
+    --brand-success: #10b981;
+}
+
+/* Global form input styles */
+.form-input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+select,
+textarea {
+    display: block;
+    width: 100%;
+    border-radius: 0.375rem;
+    border: 1px solid #d1d5db;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    background-color: white;
+    padding: 0.5rem 0.75rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-input:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 2px rgba(25, 120, 229, 0.2);
+}
+
+/* Custom select styles */
+select {
+    appearance: none;
+    padding-right: 2.5rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+}
+
+/* Input with icons */
+.input-with-icon {
+    padding-left: 2.5rem;
+}
+
+/* Form group styles */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--brand-text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+/* Error state */
+.input-error {
+    border-color: var(--brand-error);
+}
+
+.input-error:focus {
+    border-color: var(--brand-error);
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+.error-message {
+    color: var(--brand-error);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Success state */
+.input-success {
+    border-color: var(--brand-success);
+}
+
+.input-success:focus {
+    border-color: var(--brand-success);
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+/* Disabled state */
+.form-input:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+    background-color: #f3f4f6;
+    cursor: not-allowed;
+    border-color: #d1d5db;
+    color: #6b7280;
+}
+
+/* Form button styles */
+.btn-primary {
+    background-color: var(--brand-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1665c0;
+}
+
+.btn-secondary {
+    background-color: white;
+    color: var(--brand-text-primary);
+    border: 1px solid #d1d5db;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #f9fafb;
+}
+
+.btn-full {
+    width: 100%;
+}

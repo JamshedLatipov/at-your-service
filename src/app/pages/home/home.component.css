@@ -1,0 +1,34 @@
+/* Custom styling for the dropdown select */
+.select-with-custom-arrow {
+    cursor: pointer;
+    transition: border-color 0.15s ease-in-out;
+    padding-right: 2.5rem !important;
+    appearance: none;
+}
+
+/* Change the appearance of the arrow on focus/hover */
+.select-with-custom-arrow:focus+div svg,
+.select-with-custom-arrow:hover+div svg {
+    color: var(--brand-primary);
+}
+
+/* Animation for the arrow */
+.select-with-custom-arrow+div svg {
+    transition: transform 0.2s ease;
+}
+
+.select-with-custom-arrow:focus+div svg {
+    transform: rotate(180deg);
+}
+
+/* Ensure the SVG arrow aligns correctly */
+.select-with-custom-arrow+div svg {
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+/* Animation for the arrow when dropdown is focused */
+.select-with-custom-arrow:focus+div svg {
+    color: var(--brand-primary);
+    transform: rotate(180deg);
+}

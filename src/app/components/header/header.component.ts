@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HeaderService } from '../../services/header.service';
+import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, LanguageSelectorComponent],
   template: `
     <div>
       <header class="sticky top-0 z-10 bg-white/80 backdrop-blur-sm shadow-sm">
@@ -28,10 +29,7 @@ import { HeaderService } from '../../services/header.service';
             </button>
           </ng-template>
           <h1 class="flex-1 text-center text-lg font-bold text-[var(--foreground-primary)]">{{ headerService.title$ | async }}</h1>
-          <div class="flex size-10 items-center justify-center">
-            <img alt="User avatar" class="h-8 w-8 rounded-full object-cover" 
-                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5ny4MYAvOgsTU6Fnzw2ZUJTmmY9Ikf19jQuGWK9KnNJKBGf33KM62y3KmtGaANXbvpqa1nrgZm4N34Z2n1opjk7GF96tZNag5LnSpTN3GKfEA2j9cafUWiBjpUW76-pXDBzubQOL4QXuFVbHrQOurCv-isOJOhNSmdhp1Rb_ZxiY8kM2n-g8nuVQ-sic4o7ozgCfswnUPh7hqwZFP-8c3iArojyGtAqPoI6FvWy4SASqEQact_MAt56jDXGFYc6jFXXXI6XRTNQ"/>
-          </div>
+          <app-language-selector></app-language-selector>
         </div>
       </header>
 
