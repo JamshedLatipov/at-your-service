@@ -58,6 +58,27 @@ export const uz: Translations = {
         },
         requests: {
             title: 'Buyurtmalar',
+            available: {
+                title: 'Mavjud buyurtmalar',
+                filters: {
+                    title: 'Filtrlar',
+                    reset: 'Qayta o\'rnatish',
+                    types: {
+                        all: 'Barcha turlar',
+                        plumbing: 'Santexnika',
+                        electrical: 'Elektrik',
+                        hvac: 'Isitish va sovutish'
+                    },
+                    locations: {
+                        all: 'Barcha manzillar',
+                        near: 'Yaqin atrofda',
+                        far: 'Uzoqda'
+                    }
+                },
+                actions: {
+                    pickup: 'Buyurtmani olish'
+                }
+            },
             new: {
                 title: 'Yangi so\'rov',
                 steps: {

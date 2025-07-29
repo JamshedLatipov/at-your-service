@@ -58,6 +58,27 @@ export const ky: Translations = {
         },
         requests: {
             title: 'Тапшырмалар',
+            available: {
+                title: 'Жеткиликтүү өтүнмөлөр',
+                filters: {
+                    title: 'Чыпкалар',
+                    reset: 'Баштапкы абалга келтирүү',
+                    types: {
+                        all: 'Бардык түрлөр',
+                        plumbing: 'Сантехника',
+                        electrical: 'Электрик',
+                        hvac: 'Жылытуу жана муздатуу'
+                    },
+                    locations: {
+                        all: 'Бардык жерлер',
+                        near: 'Мага жакын',
+                        far: 'Алыста'
+                    }
+                },
+                actions: {
+                    pickup: 'Өтүнмөнү алуу'
+                }
+            },
             new: {
                 title: 'Жаңы тапшырма',
                 steps: {

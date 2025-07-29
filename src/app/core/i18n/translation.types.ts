@@ -108,6 +108,27 @@ export interface Translations {
                     step: string;
                 };
             };
+            available: {
+                title: string;
+                filters: {
+                    title: string;
+                    reset: string;
+                    types: {
+                        all: string;
+                        plumbing: string;
+                        electrical: string;
+                        hvac: string;
+                    };
+                    locations: {
+                        all: string;
+                        near: string;
+                        far: string;
+                    };
+                };
+                actions: {
+                    pickup: string;
+                };
+            };
         };
         profile: {
             title: string;

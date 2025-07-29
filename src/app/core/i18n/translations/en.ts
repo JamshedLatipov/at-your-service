@@ -111,6 +111,27 @@ export const en: Translations = {
                     finish: 'Finish',
                     step: 'of'
                 }
+            },
+            available: {
+                title: 'Available Requests',
+                filters: {
+                    title: 'Filters',
+                    reset: 'Reset',
+                    types: {
+                        all: 'All Types',
+                        plumbing: 'Plumbing',
+                        electrical: 'Electrical',
+                        hvac: 'HVAC'
+                    },
+                    locations: {
+                        all: 'All Locations',
+                        near: 'Near Me',
+                        far: 'Far Away'
+                    }
+                },
+                actions: {
+                    pickup: 'Pick Up Request'
+                }
             }
         },
         profile: {

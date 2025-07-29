@@ -58,6 +58,27 @@ export const ru: Translations = {
         },
         requests: {
             title: 'Заказы',
+            available: {
+                title: 'Доступные заявки',
+                filters: {
+                    title: 'Фильтры',
+                    reset: 'Сбросить',
+                    types: {
+                        all: 'Все типы',
+                        plumbing: 'Сантехника',
+                        electrical: 'Электрика',
+                        hvac: 'Отопление и кондиционирование'
+                    },
+                    locations: {
+                        all: 'Все локации',
+                        near: 'Рядом со мной',
+                        far: 'Далеко'
+                    }
+                },
+                actions: {
+                    pickup: 'Взять заявку'
+                }
+            },
             new: {
                 title: 'Новая заявка',
                 steps: {

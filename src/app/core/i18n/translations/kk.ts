@@ -58,6 +58,27 @@ export const kk: Translations = {
         },
         requests: {
             title: 'Тапсырыстар',
+            available: {
+                title: 'Қолжетімді өтінімдер',
+                filters: {
+                    title: 'Сүзгілер',
+                    reset: 'Қалпына келтіру',
+                    types: {
+                        all: 'Барлық түрлер',
+                        plumbing: 'Сантехника',
+                        electrical: 'Электрик',
+                        hvac: 'Жылыту және салқындату'
+                    },
+                    locations: {
+                        all: 'Барлық орындар',
+                        near: 'Маған жақын',
+                        far: 'Алыста'
+                    }
+                },
+                actions: {
+                    pickup: 'Өтінімді алу'
+                }
+            },
             new: {
                 title: 'Жаңа өтініш',
                 steps: {

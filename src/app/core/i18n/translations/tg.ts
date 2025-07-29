@@ -58,6 +58,27 @@ export const tg: Translations = {
         },
         requests: {
             title: 'Дархостҳо',
+            available: {
+                title: 'Дархостҳои дастрас',
+                filters: {
+                    title: 'Филтрҳо',
+                    reset: 'Бозсозӣ',
+                    types: {
+                        all: 'Ҳама намудҳо',
+                        plumbing: 'Сантехника',
+                        electrical: 'Барқчӣ',
+                        hvac: 'Гармкунӣ ва хунуккунӣ'
+                    },
+                    locations: {
+                        all: 'Ҳама ҷойҳо',
+                        near: 'Дар наздикии ман',
+                        far: 'Дур'
+                    }
+                },
+                actions: {
+                    pickup: 'Гирифтани дархост'
+                }
+            },
             new: {
                 title: 'Дархости нав',
                 steps: {
