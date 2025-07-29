@@ -62,22 +62,47 @@ export const en: Translations = {
                 title: 'New Request',
                 steps: {
                     service: {
-                        title: 'What type of service do you need?',
-                        typeLabel: 'Select a category',
+                        title: 'What service do you need?',
+                        typeLabel: 'Select category',
                         timeframeTitle: 'When do you need it?',
                         activityTitle: 'Latest masters activity',
                         preferenceTitle: 'Master Preference',
                         minRating: 'Minimum Rating',
-                        starsUp: 'stars & up'
+                        starsUp: 'stars & up',
+                        services: {
+                            plumbing: 'Plumbing',
+                            electrical: 'Electrical',
+                            cleaning: 'Cleaning',
+                            handyman: 'Handyman'
+                        },
+                        times: {
+                            asap: 'As soon as possible',
+                            week: 'Within a week',
+                            date: 'Pick a date'
+                        },
+                        activity: {
+                            any: 'Any',
+                            today: 'Active today',
+                            threeDays: 'Active in the last 3 days'
+                        }
                     },
                     description: {
                         title: 'What do you need help with?',
                         subtitle: 'Provide a detailed description so professionals can give you an accurate quote.',
                         placeholder: 'e.g., I need a plumber to fix a leaking toilet. It\'s constantly running and the handle is loose. I\'d like this fixed as soon as possible.',
-                        tip: 'Mention details like the size of the area, specific parts that need attention, and any materials you might have.'
+                        tip: 'Tip: Mention details like the size of the area, specific parts that need attention, and any materials you might have.'
                     },
                     details: {
-                        title: 'Additional Details'
+                        title: 'Additional Details',
+                        subtitle: 'Provide any extra details or specific instructions.',
+                        placeholder: 'For example: \'The leaky faucet is in the upstairs bathroom. The house was built in 1985 and has copper pipes.\'',
+                        photos: {
+                            title: 'Photos',
+                            subtitle: 'Add photos to help the professional understand the task better.',
+                            dragDrop: 'Drag & drop or click to upload',
+                            formats: 'PNG, JPG, GIF up to 10MB',
+                            upload: 'Upload photos'
+                        }
                     }
                 },
                 navigation: {

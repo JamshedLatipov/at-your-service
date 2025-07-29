@@ -62,13 +62,29 @@ export const uz: Translations = {
                 title: 'Yangi so\'rov',
                 steps: {
                     service: {
-                        title: 'Sizga qanday xizmat kerak?',
+                        title: 'Qanday xizmat kerak?',
                         typeLabel: 'Toifani tanlang',
-                        timeframeTitle: 'Bu sizga qachon kerak?',
+                        timeframeTitle: 'Bu qachon kerak?',
                         activityTitle: "Ustalarning so'nggi faolligi",
                         preferenceTitle: 'Usta tanlov',
                         minRating: 'Minimal reyting',
-                        starsUp: 'yulduz va yuqori'
+                        starsUp: 'yulduz va yuqori',
+                        services: {
+                            plumbing: 'Santexnika',
+                            electrical: 'Elektrik',
+                            cleaning: 'Tozalash',
+                            handyman: 'Usta'
+                        },
+                        times: {
+                            asap: 'Iloji boricha tezroq',
+                            week: 'Bir hafta ichida',
+                            date: 'Sana tanlash'
+                        },
+                        activity: {
+                            any: 'Ixtiyoriy',
+                            today: 'Bugun faol',
+                            threeDays: 'So\'nggi 3 kunda faol'
+                        }
                     },
                     description: {
                         title: 'Sizga qanday yordam kerak?',
@@ -77,7 +93,16 @@ export const uz: Translations = {
                         tip: "Maydonning o'lchami, e'tibor qaratish kerak bo'lgan aniq qismlar va sizda mavjud bo'lgan har qanday materiallar kabi tafsilotlarni ko'rsating."
                     },
                     details: {
-                        title: "Qo'shimcha tafsilotlar"
+                        title: "Qo'shimcha ma'lumotlar",
+                        subtitle: "Qo'shimcha tafsilotlar yoki aniq ko'rsatmalarni kiriting.",
+                        placeholder: "Masalan: 'Oqayotgan jo'mrak yuqori qavatdagi vannaxonada. Uy 1985 yilda qurilgan va mis quvurlarga ega.'",
+                        photos: {
+                            title: 'Rasmlar',
+                            subtitle: 'Mutaxassisga vazifani yaxshiroq tushunishga yordam berish uchun rasm qo\'shing.',
+                            dragDrop: 'Sudrab tashlang yoki yuklash uchun bosing',
+                            formats: 'PNG, JPG, GIF 10MB gacha',
+                            upload: 'Rasm yuklash'
+                        }
                     }
                 },
                 navigation: {

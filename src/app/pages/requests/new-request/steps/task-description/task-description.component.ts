@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { StepperService } from '../../../../../services/stepper.service';
+import { TranslationService } from '../../../../../core/i18n/translation.service';
+import { Translations } from '../../../../../core/i18n/translation.types';
 
 @Component({
   selector: 'app-task-description',
@@ -9,13 +11,13 @@ import { StepperService } from '../../../../../services/stepper.service';
   imports: [CommonModule, FormsModule],
   template: `
     <div class="space-y-4">
-      <h2 class="text-2xl font-bold text-[var(--text-primary)]">What do you need help with?</h2>
-      <p class="text-base text-[var(--text-secondary)]">Provide a detailed description so professionals can give you an accurate quote.</p>
+      <h2 class="text-2xl font-bold text-[var(--text-primary)]">{{translations?.pages?.requests?.new?.steps?.description?.title}}</h2>
+      <p class="text-base text-[var(--text-secondary)]">{{translations?.pages?.requests?.new?.steps?.description?.subtitle}}</p>
       <div class="relative">
         <textarea 
           [(ngModel)]="description"
           class="form-input min-h-[200px] resize-none pr-10" 
-          placeholder="e.g., I need a plumber to fix a leaking toilet. It's constantly running and the handle is loose. I'd like this fixed as soon as possible.">
+          [placeholder]="translations?.pages?.requests?.new?.steps?.description?.placeholder">
         </textarea>
         <button class="absolute bottom-4 right-4 flex size-8 items-center justify-center rounded-full bg-[var(--primary-50)] text-[var(--primary-600)] hover:bg-[var(--primary-100)]">
           <svg class="lucide lucide-mic" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20">
@@ -32,7 +34,7 @@ import { StepperService } from '../../../../../services/stepper.service';
           <path d="M10 22h4"></path>
         </svg>
         <p class="text-sm text-blue-800">
-          <strong>Tip:</strong> Mention details like the size of the area, specific parts that need attention, and any materials you might have.
+          <strong>{{translations?.pages?.requests?.new?.steps?.description?.tip}}</strong>
         </p>
       </div>
     </div>
@@ -40,9 +42,15 @@ import { StepperService } from '../../../../../services/stepper.service';
 })
 export class TaskDescriptionComponent {
   description = '';
+  translations?: Translations;
 
   constructor(
     private readonly stepperService: StepperService,
-  ) { }
+    private readonly translationService: TranslationService
+  ) {
+    this.translationService.getTranslations().subscribe(translations => {
+      this.translations = translations;
+    });
+  }
 
 }

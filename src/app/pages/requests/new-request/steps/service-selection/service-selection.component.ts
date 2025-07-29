@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslationService } from '../../../../../core/i18n/translation.service';
+import { Translations } from '../../../../../core/i18n/translation.types';
 
 @Component({
   selector: 'app-service-selection',
@@ -9,17 +11,17 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './service-selection.component.scss',
   template: `
     <section class="mb-8">
-      <h2 class="mb-4 text-xl font-bold text-gray-900">What type of service do you need?</h2>
+      <h2 class="mb-4 text-xl font-bold text-gray-900">{{translations?.pages?.requests?.new?.steps?.service?.title}}</h2>
       <div class="relative">
         <select [(ngModel)]="selectedService" class="form-select w-full appearance-none rounded-xl border-gray-300 bg-white bg-[image:--select-button-svg] bg-[center_right_1rem] bg-no-repeat py-3.5 pl-4 pr-10 text-base text-gray-900 shadow-sm transition duration-150 ease-in-out focus:border-[var(--primary-color)] focus:ring focus:ring-[var(--primary-color)] focus:ring-opacity-50">
-          <option value="">Select a category</option>
+          <option value="">{{translations?.pages?.requests?.new?.steps?.service?.typeLabel}}</option>
           <option *ngFor="let service of services" [value]="service">{{service}}</option>
         </select>
       </div>
     </section>
 
     <section class="mb-8">
-      <h2 class="mb-4 text-xl font-bold text-gray-900">When do you need it?</h2>
+      <h2 class="mb-4 text-xl font-bold text-gray-900">{{translations?.pages?.requests?.new?.steps?.service?.timeframeTitle}}</h2>
       <div class="space-y-4">
         <label *ngFor="let option of timeOptions" class="flex cursor-pointer items-center justify-between rounded-xl border border-gray-300 bg-white p-4 shadow-sm has-[:checked]:border-[var(--primary-color)] has-[:checked]:bg-[var(--primary-color)] has-[:checked]:text-white">
           <span class="text-base font-medium">{{option.label}}</span>
@@ -35,7 +37,7 @@ import { FormsModule } from '@angular/forms';
     </section>
 
     <section class="mb-8">
-      <h2 class="mb-4 text-xl font-bold text-gray-900">Latest masters activity</h2>
+      <h2 class="mb-4 text-xl font-bold text-gray-900">{{translations?.pages?.requests?.new?.steps?.service?.activityTitle}}</h2>
       <div>
           <div class="space-y-4">
             <label *ngFor="let activity of activityOptions" class="flex cursor-pointer items-center justify-between rounded-xl border border-gray-300 bg-white p-4 shadow-sm has-[:checked]:border-[var(--primary-color)] has-[:checked]:bg-[var(--primary-color)] has-[:checked]:text-white">
@@ -53,12 +55,12 @@ import { FormsModule } from '@angular/forms';
     </section>
 
     <section>
-      <h2 class="mb-4 text-xl font-bold text-gray-900">Master Preference</h2>
+      <h2 class="mb-4 text-xl font-bold text-gray-900">{{translations?.pages?.requests?.new?.steps?.service?.preferenceTitle}}</h2>
      
         <div class="rounded-xl border border-gray-300 bg-white p-4 shadow-sm">
           <div class="flex items-center justify-between">
-            <p class="text-base font-medium text-gray-900">Minimum Rating</p>
-            <span class="text-sm font-medium text-gray-500">{{selectedRating}} stars & up</span>
+            <p class="text-base font-medium text-gray-900">{{translations?.pages?.requests?.new?.steps?.service?.minRating}}</p>
+            <span class="text-sm font-medium text-gray-500">{{selectedRating}} {{translations?.pages?.requests?.new?.steps?.service?.starsUp}}</span>
           </div>
           <div class="mt-2 flex items-center gap-1">
             <label *ngFor="let star of [1,2,3,4,5]" class="cursor-pointer star-label">
@@ -81,22 +83,46 @@ import { FormsModule } from '@angular/forms';
   `
 })
 export class ServiceSelectionComponent {
-  services = ['Plumbing', 'Electrical', 'Cleaning', 'Gardening'];
+  translations?: Translations;
+  services: string[] = [];
   selectedService = '';
-
-  timeOptions = [
-    { label: 'As soon as possible', value: 'asap' },
-    { label: 'Within a week', value: 'week' },
-    { label: 'Pick a date', value: 'date' }
-  ];
+  timeOptions: { label: string; value: string; }[] = [];
   selectedTime = 'asap';
-
   selectedRating = 3;
-
-  activityOptions = [
-    { label: 'Any', value: 'any' },
-    { label: 'Active today', value: 'today' },
-    { label: 'Active in the last 3 days', value: 'three_days' }
-  ];
+  activityOptions: { label: string; value: string; }[] = [];
   selectedActivity = 'three_days';
+
+  constructor(private translationService: TranslationService) {
+    this.translationService.getTranslations().subscribe(translations => {
+      this.translations = translations;
+      this.updateServices(translations);
+      this.updateTimeOptions(translations);
+      this.updateActivityOptions(translations);
+    });
+  }
+
+  private updateServices(translations: Translations) {
+    this.services = [
+      translations.pages.requests.new.steps.service.services.plumbing,
+      translations.pages.requests.new.steps.service.services.electrical,
+      translations.pages.requests.new.steps.service.services.cleaning,
+      translations.pages.requests.new.steps.service.services.handyman
+    ];
+  }
+
+  private updateTimeOptions(translations: Translations) {
+    this.timeOptions = [
+      { label: translations.pages.requests.new.steps.service.times.asap, value: 'asap' },
+      { label: translations.pages.requests.new.steps.service.times.week, value: 'week' },
+      { label: translations.pages.requests.new.steps.service.times.date, value: 'date' }
+    ];
+  }
+
+  private updateActivityOptions(translations: Translations) {
+    this.activityOptions = [
+      { label: translations.pages.requests.new.steps.service.activity.any, value: 'any' },
+      { label: translations.pages.requests.new.steps.service.activity.today, value: 'today' },
+      { label: translations.pages.requests.new.steps.service.activity.threeDays, value: 'three_days' }
+    ];
+  }
 }

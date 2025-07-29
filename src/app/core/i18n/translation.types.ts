@@ -65,15 +65,40 @@ export interface Translations {
                         preferenceTitle: string;
                         minRating: string;
                         starsUp: string;
+                        services: {
+                            plumbing: string;
+                            electrical: string;
+                            cleaning: string;
+                            handyman: string;
+                        };
+                        times: {
+                            asap: string;
+                            week: string;
+                            date: string;
+                        };
+                        activity: {
+                            any: string;
+                            today: string;
+                            threeDays: string;
+                        };
+                    };
+                    details: {
+                        title: string;
+                        subtitle: string;
+                        placeholder: string;
+                        photos: {
+                            title: string;
+                            subtitle: string;
+                            dragDrop: string;
+                            formats: string;
+                            upload: string;
+                        };
                     };
                     description: {
                         title: string;
                         subtitle: string;
                         placeholder: string;
                         tip: string;
-                    };
-                    details: {
-                        title: string;
                     };
                 };
                 navigation: {
