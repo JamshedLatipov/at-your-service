@@ -12,11 +12,36 @@ export interface Translations {
         search: string;
         submit: string;
         cancel: string;
+        logout: string;
         actions: {
             back: string;
         };
     };
     pages: {
+        settings: {
+            notificationSettings: string;
+            enableNotifications: {
+                title: string;
+                description: string;
+            };
+            serviceResponses: {
+                title: string;
+                description: string;
+            };
+            appointmentReminders: {
+                title: string;
+                description: string;
+            };
+            promotionalOffers: {
+                title: string;
+                description: string;
+            };
+            language: {
+                title: string;
+                selectLanguage: string;
+                description: string;
+            };
+        };
         home: {
             title: string;
             hero: {
@@ -25,7 +50,9 @@ export interface Translations {
                 title2: string;
                 subtitle: string;
             };
-            search: { servicePrompt: string };
+            search: {
+                servicePrompt: string;
+            };
             services: {
                 plumbing: string;
                 electrical: string;
@@ -54,6 +81,27 @@ export interface Translations {
         };
         requests: {
             title: string;
+            available: {
+                title: string;
+                filters: {
+                    title: string;
+                    reset: string;
+                    types: {
+                        all: string;
+                        plumbing: string;
+                        electrical: string;
+                        hvac: string;
+                    };
+                    locations: {
+                        all: string;
+                        near: string;
+                        far: string;
+                    };
+                };
+                actions: {
+                    pickup: string;
+                };
+            };
             new: {
                 title: string;
                 steps: {
@@ -82,6 +130,12 @@ export interface Translations {
                             threeDays: string;
                         };
                     };
+                    description: {
+                        title: string;
+                        subtitle: string;
+                        placeholder: string;
+                        tip: string;
+                    };
                     details: {
                         title: string;
                         subtitle: string;
@@ -94,39 +148,12 @@ export interface Translations {
                             upload: string;
                         };
                     };
-                    description: {
-                        title: string;
-                        subtitle: string;
-                        placeholder: string;
-                        tip: string;
-                    };
                 };
                 navigation: {
                     continue: string;
                     back: string;
                     finish: string;
                     step: string;
-                };
-            };
-            available: {
-                title: string;
-                filters: {
-                    title: string;
-                    reset: string;
-                    types: {
-                        all: string;
-                        plumbing: string;
-                        electrical: string;
-                        hvac: string;
-                    };
-                    locations: {
-                        all: string;
-                        near: string;
-                        far: string;
-                    };
-                };
-                actions: {
-                    pickup: string;
                 };
             };
         };
@@ -137,6 +164,22 @@ export interface Translations {
                 master: string;
                 admin: string;
             };
+        };
+        auth: {
+            email: string;
+            phone: string;
+            enterOtp: string;
+            resend: string;
+            verify: string;
+            signUp: string;
+            logIn: string;
+            termsText: string;
+            termsLink: string;
+            privacyLink: string;
+            and: string;
+            haveAccount: string;
+            noAccount: string;
+            continueWith: string;
         };
     };
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, RouterModule, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { HeaderService } from './services/header.service';
+import { HeaderService } from './core/services/header.service';
 
 interface RouteConfig {
   title: string;

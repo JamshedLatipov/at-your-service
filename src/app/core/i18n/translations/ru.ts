@@ -14,11 +14,36 @@ export const ru: Translations = {
         search: 'Поиск',
         submit: 'Отправить',
         cancel: 'Отмена',
+        logout: 'Выйти',
         actions: {
             back: 'Назад'
         }
     },
     pages: {
+        settings: {
+            notificationSettings: 'Настройки уведомлений',
+            enableNotifications: {
+                title: 'Включить уведомления',
+                description: 'Получайте все обновления и оповещения.'
+            },
+            serviceResponses: {
+                title: 'Ответы специалистов',
+                description: 'Когда специалист отвечает.'
+            },
+            appointmentReminders: {
+                title: 'Напоминания о встречах',
+                description: 'Для предстоящих услуг.'
+            },
+            promotionalOffers: {
+                title: 'Рекламные предложения',
+                description: 'Специальные предложения и обновления.'
+            },
+            language: {
+                title: 'Язык',
+                selectLanguage: 'Выберите язык',
+                description: 'Выберите предпочитаемый язык'
+            }
+        },
         home: {
             title: 'Главная',
             hero: {
@@ -141,6 +166,22 @@ export const ru: Translations = {
                 master: 'Мастер',
                 admin: 'Администратор'
             }
+        },
+        auth: {
+            email: 'Эл. почта',
+            phone: 'Номер телефона',
+            enterOtp: 'Введите код подтверждения',
+            resend: 'Отправить снова',
+            verify: 'Подтвердить',
+            signUp: 'Регистрация',
+            logIn: 'Войти',
+            termsText: 'Регистрируясь, вы соглашаетесь с',
+            termsLink: 'Условиями использования',
+            privacyLink: 'Политикой конфиденциальности',
+            and: 'и',
+            haveAccount: 'Уже есть аккаунт?',
+            noAccount: 'Нет аккаунта?',
+            continueWith: 'или продолжить через'
         }
     }
 };

@@ -14,11 +14,36 @@ export const en: Translations = {
         search: 'Search',
         submit: 'Submit',
         cancel: 'Cancel',
+        logout: 'Log Out',
         actions: {
             back: 'Back'
         }
     },
     pages: {
+        settings: {
+            notificationSettings: 'Notification Settings',
+            enableNotifications: {
+                title: 'Enable Notifications',
+                description: 'Receive all updates and alerts.'
+            },
+            serviceResponses: {
+                title: 'Service Responses',
+                description: 'When a professional responds.'
+            },
+            appointmentReminders: {
+                title: 'Appointment Reminders',
+                description: 'For upcoming services.'
+            },
+            promotionalOffers: {
+                title: 'Promotional Offers',
+                description: 'Special offers and updates.'
+            },
+            language: {
+                title: 'Language',
+                selectLanguage: 'Select Language',
+                description: 'Choose your preferred language'
+            }
+        },
         home: {
             title: 'Home',
             hero: {
@@ -58,6 +83,27 @@ export const en: Translations = {
         },
         requests: {
             title: 'Requests',
+            available: {
+                title: 'Available Requests',
+                filters: {
+                    title: 'Filters',
+                    reset: 'Reset',
+                    types: {
+                        all: 'All Types',
+                        plumbing: 'Plumbing',
+                        electrical: 'Electrical',
+                        hvac: 'HVAC'
+                    },
+                    locations: {
+                        all: 'All Locations',
+                        near: 'Near Me',
+                        far: 'Far Away'
+                    }
+                },
+                actions: {
+                    pickup: 'Pick Up Request'
+                }
+            },
             new: {
                 title: 'New Request',
                 steps: {
@@ -111,36 +157,31 @@ export const en: Translations = {
                     finish: 'Finish',
                     step: 'of'
                 }
-            },
-            available: {
-                title: 'Available Requests',
-                filters: {
-                    title: 'Filters',
-                    reset: 'Reset',
-                    types: {
-                        all: 'All Types',
-                        plumbing: 'Plumbing',
-                        electrical: 'Electrical',
-                        hvac: 'HVAC'
-                    },
-                    locations: {
-                        all: 'All Locations',
-                        near: 'Near Me',
-                        far: 'Far Away'
-                    }
-                },
-                actions: {
-                    pickup: 'Pick Up Request'
-                }
             }
         },
         profile: {
             title: 'Profile',
             roles: {
                 client: 'Client',
-                master: 'Master',
+                master: 'Professional',
                 admin: 'Administrator'
             }
+        },
+        auth: {
+            email: 'Email',
+            phone: 'Phone number',
+            enterOtp: 'Enter verification code',
+            resend: 'Resend',
+            verify: 'Verify',
+            signUp: 'Sign Up',
+            logIn: 'Log In',
+            termsText: 'By signing up, you agree to our',
+            termsLink: 'Terms of Service',
+            privacyLink: 'Privacy Policy',
+            and: 'and',
+            haveAccount: 'Already have an account?',
+            noAccount: 'Don\'t have an account?',
+            continueWith: 'or continue with'
         }
     }
 };

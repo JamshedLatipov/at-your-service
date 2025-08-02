@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --configuration production",
+    "build:browser": "ng build --configuration production --output-mode static --ssr false",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:service-master": "node dist/service-master/server/server.mjs"

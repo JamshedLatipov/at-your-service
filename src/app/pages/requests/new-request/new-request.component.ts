@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { StepperService } from '../../../services/stepper.service';
+import { StepperService } from '../../../core/services/stepper.service';
 import { ServiceSelectionComponent } from './steps/service-selection/service-selection.component';
 import { TaskDescriptionComponent } from './steps/task-description/task-description.component';
 import { AdditionalDetailsComponent } from './steps/additional-details/additional-details.component';
-import { HeaderService } from '../../../services/header.service';
+import { HeaderService } from '../../../core/services/header.service';
 import { Observable } from 'rxjs';
 import { TranslationService } from '../../../core/i18n/translation.service';
 import { Translations } from '../../../core/i18n/translation.types';
@@ -64,13 +64,14 @@ export class NewRequestComponent implements OnInit {
     this.currentStep$ = this.stepperService.currentStep$;
     this.translationService.getTranslations().subscribe(translations => {
       this.translations = translations;
+      console.log('Translations loaded:', translations);
       this.headerService.setTitle(translations.pages.requests.new.title || 'New Request');
     });
   }
 
   ngOnInit() {
     this.stepperService.resetSteps();
-    this.headerService.setShowBackButton(true);
+    this.headerService.setShowBackButton(false);
 
   }
 

@@ -14,11 +14,36 @@ export const kk: Translations = {
         search: 'Іздеу',
         submit: 'Жіберу',
         cancel: 'Бас тарту',
+        logout: 'Шығу',
         actions: {
             back: 'Артқа'
         }
     },
     pages: {
+        settings: {
+            notificationSettings: 'Хабарландыру параметрлері',
+            enableNotifications: {
+                title: 'Хабарландыруларды қосу',
+                description: 'Барлық жаңартулар мен ескертулерді алыңыз.'
+            },
+            serviceResponses: {
+                title: 'Қызмет жауаптары',
+                description: 'Маман жауап бергенде.'
+            },
+            appointmentReminders: {
+                title: 'Кездесу еске салғыштар',
+                description: 'Алдағы қызметтер үшін.'
+            },
+            promotionalOffers: {
+                title: 'Жарнамалық ұсыныстар',
+                description: 'Арнайы ұсыныстар мен жаңартулар.'
+            },
+            language: {
+                title: 'Тіл',
+                selectLanguage: 'Тіл таңдаңыз',
+                description: 'Қалаған тіліңізді таңдаңыз'
+            }
+        },
         home: {
             title: 'Басты бет',
             hero: {
@@ -141,6 +166,22 @@ export const kk: Translations = {
                 master: 'Шебер',
                 admin: 'Әкімші'
             }
+        },
+        auth: {
+            email: 'Email',
+            phone: 'Телефон нөмірі',
+            enterOtp: 'Растау кодын енгізіңіз',
+            resend: 'Қайта жіберу',
+            verify: 'Растау',
+            signUp: 'Тіркелу',
+            logIn: 'Кіру',
+            termsText: 'Тіркелу арқылы сіз келесілерді қабылдайсыз',
+            termsLink: 'Қолдану шарттары',
+            privacyLink: 'Құпиялылық саясаты',
+            and: 'және',
+            haveAccount: 'Аккаунтыңыз бар ма?',
+            noAccount: 'Аккаунтыңыз жоқ па?',
+            continueWith: 'немесе жалғастырыңыз'
         }
     }
 };

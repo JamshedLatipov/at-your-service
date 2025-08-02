@@ -14,11 +14,36 @@ export const ky: Translations = {
         search: 'Издөө',
         submit: 'Жөнөтүү',
         cancel: 'Жокко чыгаруу',
+        logout: 'Чыгуу',
         actions: {
             back: 'Артка'
         }
     },
     pages: {
+        settings: {
+            notificationSettings: 'Билдирүү жөндөөлөрү',
+            enableNotifications: {
+                title: 'Билдирүүлөрдү иштетүү',
+                description: 'Бардык жаңыртууларды жана эскертүүлөрдү алыңыз.'
+            },
+            serviceResponses: {
+                title: 'Кызмат жооптору',
+                description: 'Адис жооп бергенде.'
+            },
+            appointmentReminders: {
+                title: 'Жолугушуу эскертүүлөрү',
+                description: 'Келе жаткан кызматтар үчүн.'
+            },
+            promotionalOffers: {
+                title: 'Жарнамалык сунуштар',
+                description: 'Атайын сунуштар жана жаңыртуулар.'
+            },
+            language: {
+                title: 'Тил',
+                selectLanguage: 'Тил тандаңыз',
+                description: 'Каалаган тилиңизди тандаңыз'
+            }
+        },
         home: {
             title: 'Башкы бет',
             hero: {
@@ -141,6 +166,22 @@ export const ky: Translations = {
                 master: 'Уста',
                 admin: 'Администратор'
             }
+        },
+        auth: {
+            email: 'Email',
+            phone: 'Телефон номери',
+            enterOtp: 'Текшерүү кодун киргизиңиз',
+            resend: 'Кайра жөнөтүү',
+            verify: 'Текшерүү',
+            signUp: 'Катталуу',
+            logIn: 'Кирүү',
+            termsText: 'Катталуу менен сиз төмөнкүлөрдү кабыл аласыз',
+            termsLink: 'Колдонуу шарттары',
+            privacyLink: 'Купуялуулук саясаты',
+            and: 'жана',
+            haveAccount: 'Аккаунтуңуз барбы?',
+            noAccount: 'Аккаунтуңуз жокпу?',
+            continueWith: 'же улантыңыз'
         }
     }
 };

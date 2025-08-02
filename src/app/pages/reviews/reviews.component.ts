@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HeaderService } from '../../services/header.service';
+import { HeaderService } from '../../core/services/header.service';
 
 interface Review {
-    id: number;
-    author: string;
-    avatar: string;
-    date: string;
-    rating: number;
-    content: string;
-    likes: number;
-    dislikes: number;
+  id: number;
+  author: string;
+  avatar: string;
+  date: string;
+  rating: number;
+  content: string;
+  likes: number;
+  dislikes: number;
 }
 
 interface RatingStats {
-    average: number;
-    total: number;
-    distribution: { [key: number]: number };
+  average: number;
+  total: number;
+  distribution: { [key: number]: number };
 }
 
 @Component({
-    selector: 'app-reviews',
-    standalone: true,
-    imports: [CommonModule, RouterModule],
-    template: `
+  selector: 'app-reviews',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  template: `
     <div class="relative flex size-full min-h-screen flex-col justify-between overflow-x-hidden">
       <div class="flex flex-col">
 
@@ -112,56 +112,56 @@ interface RatingStats {
   `
 })
 export class ReviewsComponent implements OnInit {
-    activeFilter = 'All Reviews';
-    filters = ['All Reviews', 'Recent', 'Highest Rated'];
+  activeFilter = 'All Reviews';
+  filters = ['All Reviews', 'Recent', 'Highest Rated'];
 
-    activeFilterClass = 'flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[var(--primary-color)] px-4 text-white';
-    inactiveFilterClass = 'flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white px-4 text-[var(--text-primary)]';
+  activeFilterClass = 'flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[var(--primary-color)] px-4 text-white';
+  inactiveFilterClass = 'flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white px-4 text-[var(--text-primary)]';
 
-    stats: RatingStats = {
-        average: 4.8,
-        total: 124,
-        distribution: {
-            5: 75,
-            4: 15,
-            3: 5,
-            2: 3,
-            1: 2
-        }
-    };
-
-    reviews: Review[] = [
-        {
-            id: 1,
-            author: 'Sophia Bennett',
-            avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBflDi5SBPvzEZ75HqpaUirYPw09b3TomhUgyoqgglhRyy5iyJuHBuzIgdW-LdVddHEFphLCT1m4jHRzjqdB-8dK-kaZNtbZbZeL6QI-XgVThJQcjMkEkdSMiouuXu_5EWBSi6EKmhtni6aOU2jY9XTtemHXX3GtM0PZND92qfi09uFGc-iqsUuwcBBe_4UUcMRG0Zl15h0AJvvoYcDkoaVXe9BHwNSnBXhUzEc8AJa4VO4bHVCcqFK7gShm5mpVQmvMG5o7e8fiw',
-            date: '2 months ago',
-            rating: 5,
-            content: 'Absolutely thrilled with the service! The professional was punctual, efficient, and incredibly skilled. Highly recommend!',
-            likes: 12,
-            dislikes: 2
-        },
-        {
-            id: 2,
-            author: 'Ethan Carter',
-            avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA68W2CvUpRnkt9S1b6Wpop4dSt2a_CPUbet_7uBs4Q9RGfyXVlLdLlcSrGz1yywAu-xQfdcBL3qGLQfC5kygvkKydf7GOuTyWW3PowMp-5kLxBSddONi4KSvLOeNDn-ueSlSf4ny_m0NJay3RfTnjbEkX6FFuEUbgc3r3x87p8dgsVwvzD7c68PAFSnd3h68TGa2hqJi4QKybkmEFh0QAhC_GZKbezSjY4KU3YbIBRpwGmQhDndPud8NOXubnpZ0kzVvvQOitaFQ',
-            date: '3 months ago',
-            rating: 4,
-            content: 'Good service overall, but there were a few minor issues that could have been handled better. Still, a positive experience.',
-            likes: 8,
-            dislikes: 1
-        }
-    ];
-
-    constructor(public headerService: HeaderService) { }
-
-    ngOnInit() {
-        this.headerService.setShowBackButton(true);
-        this.headerService.setTitle('Reviews');
+  stats: RatingStats = {
+    average: 4.8,
+    total: 124,
+    distribution: {
+      5: 75,
+      4: 15,
+      3: 5,
+      2: 3,
+      1: 2
     }
+  };
 
-    setActiveFilter(filter: string) {
-        this.activeFilter = filter;
-        // TODO: Implement filter logic
+  reviews: Review[] = [
+    {
+      id: 1,
+      author: 'Sophia Bennett',
+      avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBflDi5SBPvzEZ75HqpaUirYPw09b3TomhUgyoqgglhRyy5iyJuHBuzIgdW-LdVddHEFphLCT1m4jHRzjqdB-8dK-kaZNtbZbZeL6QI-XgVThJQcjMkEkdSMiouuXu_5EWBSi6EKmhtni6aOU2jY9XTtemHXX3GtM0PZND92qfi09uFGc-iqsUuwcBBe_4UUcMRG0Zl15h0AJvvoYcDkoaVXe9BHwNSnBXhUzEc8AJa4VO4bHVCcqFK7gShm5mpVQmvMG5o7e8fiw',
+      date: '2 months ago',
+      rating: 5,
+      content: 'Absolutely thrilled with the service! The professional was punctual, efficient, and incredibly skilled. Highly recommend!',
+      likes: 12,
+      dislikes: 2
+    },
+    {
+      id: 2,
+      author: 'Ethan Carter',
+      avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA68W2CvUpRnkt9S1b6Wpop4dSt2a_CPUbet_7uBs4Q9RGfyXVlLdLlcSrGz1yywAu-xQfdcBL3qGLQfC5kygvkKydf7GOuTyWW3PowMp-5kLxBSddONi4KSvLOeNDn-ueSlSf4ny_m0NJay3RfTnjbEkX6FFuEUbgc3r3x87p8dgsVwvzD7c68PAFSnd3h68TGa2hqJi4QKybkmEFh0QAhC_GZKbezSjY4KU3YbIBRpwGmQhDndPud8NOXubnpZ0kzVvvQOitaFQ',
+      date: '3 months ago',
+      rating: 4,
+      content: 'Good service overall, but there were a few minor issues that could have been handled better. Still, a positive experience.',
+      likes: 8,
+      dislikes: 1
     }
+  ];
+
+  constructor(public headerService: HeaderService) { }
+
+  ngOnInit() {
+    this.headerService.setShowBackButton(true);
+    this.headerService.setTitle('Reviews');
+  }
+
+  setActiveFilter(filter: string) {
+    this.activeFilter = filter;
+    // TODO: Implement filter logic
+  }
 }

@@ -1,8 +1,28 @@
-<div class="flex items-center bg-white p-4 pb-2 justify-between">
-    <h2 class="text-[#121416] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pl-12">
-        Handy</h2>
-    <div class="flex w-12 items-center justify-end">
-        <p class="text-[#6a7681] text-base font-bold leading-normal tracking-[0.015em] shrink-0">
-            Register/Login</p>
-    </div>
+<div>
+    <header class="sticky top-0 z-10 bg-white/80 backdrop-blur-sm shadow-sm">
+        <div class="grid grid-cols-[auto_1fr_auto] items-center px-4 py-3 gap-4">
+            <div class="w-6">
+                <ng-container *ngIf="headerService.showBackButton$ | async">
+                    <button class="text-[var(--foreground-primary)] hover:text-[var(--foreground-secondary)]"
+                        (click)="headerService.goBack()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z" />
+                        </svg>
+                    </button>
+                </ng-container>
+            </div>
+            <div class="text-center">
+                <h1 class="text-lg font-bold text-[var(--foreground-primary)]">{{ headerService.title$ | async }}</h1>
+            </div>
+            <div class="flex justify-end">
+                <ng-container *ngIf="!(authService.isAuthenticated$ | async)">
+                    <a routerLink="/auth/login"
+                        class="rounded-full bg-[var(--primary-600)] px-4 py-2 text-sm font-medium text-white hover:bg-[var(--primary-700)]">Sign
+                        In</a>
+                </ng-container>
+            </div>
+        </div>
+    </header>
 </div>

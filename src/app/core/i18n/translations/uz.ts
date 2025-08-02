@@ -14,11 +14,36 @@ export const uz: Translations = {
         search: 'Qidirish',
         submit: 'Yuborish',
         cancel: 'Bekor qilish',
+        logout: 'Chiqish',
         actions: {
             back: 'Orqaga'
         }
     },
     pages: {
+        settings: {
+            notificationSettings: 'Bildirishnoma sozlamalari',
+            enableNotifications: {
+                title: 'Bildirishnomalarni yoqish',
+                description: 'Barcha yangilanishlar va ogohlantiruvlarni qabul qiling.'
+            },
+            serviceResponses: {
+                title: 'Xizmat javoblari',
+                description: 'Mutaxassis javob berganda.'
+            },
+            appointmentReminders: {
+                title: 'Uchrashuv eslatmalari',
+                description: 'Kelgusi xizmatlar uchun.'
+            },
+            promotionalOffers: {
+                title: 'Reklama takliflari',
+                description: 'Maxsus takliflar va yangilanishlar.'
+            },
+            language: {
+                title: 'Til',
+                selectLanguage: 'Tilni tanlang',
+                description: 'Afzal ko\'rgan tilingizni tanlang'
+            }
+        },
         home: {
             title: 'Asosiy',
             hero: {
@@ -141,6 +166,22 @@ export const uz: Translations = {
                 master: 'Usta',
                 admin: 'Administrator'
             }
+        },
+        auth: {
+            email: 'Email',
+            phone: 'Telefon raqami',
+            enterOtp: 'Tasdiqlash kodini kiriting',
+            resend: 'Qayta yuborish',
+            verify: 'Tasdiqlash',
+            signUp: "Ro'yxatdan o'tish",
+            logIn: 'Kirish',
+            termsText: "Ro'yxatdan o'tish orqali siz quyidagilarni qabul qilasiz",
+            termsLink: 'Foydalanish shartlari',
+            privacyLink: 'Maxfiylik siyosati',
+            and: 'va',
+            haveAccount: 'Akkountingiz bormi?',
+            noAccount: 'Akkountingiz yo\'qmi?',
+            continueWith: 'yoki davom eting'
         }
     }
 };

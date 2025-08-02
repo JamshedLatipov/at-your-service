@@ -12,7 +12,9 @@ import { ReviewsComponent } from './pages/reviews/reviews.component';
 import { FindMasterComponent } from './pages/master/find-master/find-master.component';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './services/auth.service';
+import { AUTH_ROUTES } from './pages/auth/auth-routing.module';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { AuthService } from './core/services/auth.service';
 
 export const routes: Routes = [
     {
@@ -27,6 +29,7 @@ export const routes: Routes = [
                     const router = inject(Router);
                     const userRole = authService.getUserRole();
 
+                    console.log('User role:', authService);
                     if (userRole === 'client') {
                         return '/find-master';
                     } else if (userRole === 'master') {
@@ -51,10 +54,11 @@ export const routes: Routes = [
             { path: 'reviews', component: ReviewsComponent },
             { path: 'requests/new', component: NewRequestComponent },
             { path: 'requests/available', component: RequestListComponent },
+            { path: 'settings', component: SettingsComponent },
             { path: 'profile/master', component: MasterProfileComponent },
             { path: 'profile/client', component: ClientProfileComponent },
             { path: 'find-master', component: FindMasterComponent },
-
+            { path: 'auth', children: AUTH_ROUTES }
         ]
     }
 ];

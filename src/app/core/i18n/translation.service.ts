@@ -19,13 +19,20 @@ export interface Language {
   providedIn: 'root'
 })
 export class TranslationService {
-  private readonly defaultLang = { code: 'en', name: 'English', flag: '🇬🇧' };
+  private readonly languages: Language[] = [
+    { code: 'en', name: 'English', flag: 'flags/gb.svg' },
+    { code: 'ru', name: 'Русский', flag: 'flags/ru.svg' },
+    { code: 'uz', name: 'O\'zbek', flag: 'flags/uz.svg' },
+    { code: 'kk', name: 'Қазақша', flag: 'flags/kz.svg' },
+    { code: 'ky', name: 'Кыргызча', flag: 'flags/kg.svg' },
+    { code: 'tg', name: 'Тоҷикӣ', flag: 'flags/tj.svg' }
+  ];
+  private readonly defaultLang = this.languages[0];
   private currentLanguage = new BehaviorSubject<Language>(this.defaultLang);
   private translations = new BehaviorSubject<Translations>(en);
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    const defaultLang = { code: 'en', name: 'English', flag: '🇬🇧' };
-    let savedLang = defaultLang;
+    let savedLang = this.defaultLang;
 
     if (isPlatformBrowser(this.platformId)) {
       const savedLangStr = localStorage.getItem('lang');

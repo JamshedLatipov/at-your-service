@@ -1,0 +1,48 @@
+<div class="hidden">
+    <div class="flex h-12 flex-1 items-center justify-center rounded-xl bg-[var(--background-color)] p-1">
+        <ng-container *ngFor="let method of authMethods">
+            <label
+                class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-3 py-2 text-sm font-medium leading-normal transition-all duration-300 has-[:checked]:bg-white has-[:checked]:shadow-sm has-[:checked]:text-[var(--text-primary)] text-[var(--text-secondary)]">
+                <span class="truncate">{{ method.label | translate | async }}</span>
+                <input class="sr-only" name="auth_method" type="radio" [value]="method.value" [(ngModel)]="authMethod"
+                    (change)="onAuthMethodChange()" />
+            </label>
+        </ng-container>
+    </div>
+</div>
+<form class="px-4 space-y-4" (ngSubmit)="handleSubmit()">
+    <div class="relative mb-5" [class.opacity-50]="showOtp">
+        <input [type]="inputType" [id]="inputId" [placeholder]="placeholder | translate | async" [(ngModel)]="authValue"
+            [name]="inputId" [readonly]="showOtp" (input)="onAuthValueChange()"
+            class="form-input peer w-full resize-none rounded-xl border-none bg-[var(--background-color)] h-14 placeholder:text-transparent text-base font-normal leading-normal text-[var(--text-primary)] p-4 focus:ring-2 focus:ring-inset focus:ring-[var(--primary-color)]"
+            [class.ring-2]="isCurrentMethodInvalid" [class.ring-red-500]="isCurrentMethodInvalid" />
+        <label [for]="inputId"
+            class="absolute left-4 top-4 text-[var(--text-secondary)] transition-all duration-300 peer-focus:-top-3 peer-focus:text-xs peer-focus:text-[var(--primary-color)] peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs bg-white px-1 rounded-sm z-10"
+            [class.text-red-500]="isCurrentMethodInvalid">
+            {{inputLabel | translate | async}}
+        </label>
+        <span *ngIf="showValidationError" class="text-xs text-red-500 absolute -bottom-5 left-0">
+            {{validationMessage}}
+        </span>
+    </div>
+    <div class="relative mb-5" *ngIf="showOtp">
+        <input type="text" id="otp" [placeholder]="otpPlaceholder | translate | async" [(ngModel)]="otpValue" name="otp"
+            class="form-input peer w-full resize-none rounded-xl border-none bg-[var(--background-color)] h-14 placeholder:text-transparent placeholder:opacity-0 text-base font-normal leading-normal text-[var(--text-primary)] p-4 focus:ring-2 focus:ring-inset focus:ring-[var(--primary-color)]" />
+        <label for="otp"
+            class="absolute left-4 top-4 text-[var(--text-secondary)] transition-all duration-300 peer-focus:-top-3 peer-focus:text-xs peer-focus:text-[var(--primary-color)] peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs bg-white px-1 rounded-sm z-10">
+            {{ 'pages.auth.enterOtp' | translate | async }}
+        </label>
+        <div class="absolute right-4 top-5 flex items-center gap-2">
+            <span class="text-xs text-[var(--text-secondary)]" *ngIf="timer > 0">{{timer}}s</span>
+            <button type="button" [disabled]="!showResendButton" (click)="resendOtp()"
+                class="text-xs text-[var(--primary-color)] disabled:text-[var(--text-secondary)] hover:underline">
+                {{ 'pages.auth.resend' | translate | async }}
+            </button>
+        </div>
+    </div>
+    <button
+        class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-[var(--primary-color)] text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-blue-600 transition-colors duration-300"
+        type="submit">
+        <span class="truncate">{{submitButtonText | translate | async}}</span>
+    </button>
+</form>

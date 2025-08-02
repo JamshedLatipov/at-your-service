@@ -14,11 +14,36 @@ export const tg: Translations = {
         search: 'Ҷустуҷӯ',
         submit: 'Фиристодан',
         cancel: 'Бекор кардан',
+        logout: 'Баромадан',
         actions: {
             back: 'Бозгашт'
         }
     },
     pages: {
+        settings: {
+            notificationSettings: 'Танзимоти огоҳиҳо',
+            enableNotifications: {
+                title: 'Фаъол кардани огоҳиҳо',
+                description: 'Ҳамаи навсозиҳо ва огоҳиҳоро гиред.'
+            },
+            serviceResponses: {
+                title: 'Ҷавобҳои хизматрасонӣ',
+                description: 'Вақте ки мутахассис ҷавоб медиҳад.'
+            },
+            appointmentReminders: {
+                title: 'Ёдрасҳои мулоқот',
+                description: 'Барои хизматрасониҳои оянда.'
+            },
+            promotionalOffers: {
+                title: 'Пешниҳодҳои рекламавӣ',
+                description: 'Пешниҳодҳои махсус ва навсозиҳо.'
+            },
+            language: {
+                title: 'Забон',
+                selectLanguage: 'Забонро интихоб кунед',
+                description: 'Забони дилхоҳи худро интихоб кунед'
+            }
+        },
         home: {
             title: 'Асосӣ',
             hero: {
@@ -141,6 +166,22 @@ export const tg: Translations = {
                 master: 'Усто',
                 admin: 'Мудир'
             }
+        },
+        auth: {
+            email: 'Email',
+            phone: 'Рақами телефон',
+            enterOtp: 'Рамзи тасдиқро ворид кунед',
+            resend: 'Аз нав фиристодан',
+            verify: 'Тасдиқ',
+            signUp: 'Бақайдгирӣ',
+            logIn: 'Даромад',
+            termsText: 'Бо бақайдгирӣ шумо инҳоро қабул мекунед',
+            termsLink: 'Шартҳои истифода',
+            privacyLink: 'Сиёсати махфият',
+            and: 'ва',
+            haveAccount: 'Аллакай ҳисоб доред?',
+            noAccount: 'Ҳисоб надоред?',
+            continueWith: 'ё идома диҳед'
         }
     }
 };

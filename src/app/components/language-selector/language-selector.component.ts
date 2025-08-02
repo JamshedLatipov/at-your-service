@@ -1,5 +1,5 @@
-import { Component, OnInit, signal, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, OnDestroy, signal, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../core/i18n/translation.service';
 
 export interface Language {
@@ -14,57 +14,65 @@ export interface Language {
   imports: [CommonModule],
   template: `
     <div class="relative">
-      <button (click)="isOpen = !isOpen" class="flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-gray-100">
-        <span class="text-lg">{{selectedLanguage()?.code}}</span>
-        <span class="text-sm text-gray-600">{{selectedLanguage()?.name}}</span>
+      <button (click)="toggleDropdown()" class="flex items-center gap-2 py-1 text-neutral-600">
+        <img [src]="currentLanguage()?.flag" alt="flag" class="w-6 h-6 rounded-sm object-cover ring-1 ring-neutral-200">
+        <span>{{currentLanguage()?.name}}</span>
       </button>
-      
-      <div *ngIf="isOpen" class="absolute right-0 mt-1 py-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200">
-        <button 
-          *ngFor="let lang of languages" 
-          (click)="selectLanguage(lang)"
-          class="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center gap-2">
-          <span class="text-lg">{{lang.flag}}</span>
-          <span class="text-sm">{{lang.name}}</span>
-        </button>
+      <div *ngIf="isOpen" class="absolute right-0 mt-1 w-48 rounded-lg bg-white shadow-sm border border-neutral-200 z-50" (click)="$event.stopPropagation()">
+        <div class="p-2">
+          <button *ngFor="let lang of languages" 
+                  (click)="selectLanguage(lang)"
+                  class="flex items-center gap-2 w-full px-3 py-2 text-left text-sm hover:bg-neutral-100 rounded-lg">
+            <img [src]="lang.flag" alt="flag" class="w-5 h-5 rounded-sm object-cover">
+            <span>{{lang.name}}</span>
+          </button>
+        </div>
       </div>
     </div>
   `
 })
-export class LanguageSelectorComponent implements OnInit {
+export class LanguageSelectorComponent implements OnInit, OnDestroy {
   isOpen = false;
-  selectedLanguage = signal<Language | null | undefined>(null);
+  currentLanguage = signal<Language | null | undefined>(null);
   languages: Language[] = [
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-    { code: 'tg', name: 'Тоҷикӣ', flag: '🇹🇯' },
-    { code: 'kk', name: 'Қазақша', flag: '🇰🇿' },
-    { code: 'ky', name: 'Кыргызча', flag: '🇰🇬' },
-    { code: 'uz', name: "O'zbek", flag: '🇺🇿' }
+    { code: 'en', name: 'English', flag: 'flags/gb.svg' },
+    { code: 'ru', name: 'Русский', flag: 'flags/ru.svg' },
+    { code: 'tg', name: 'Тоҷикӣ', flag: 'flags/tj.svg' },
+    { code: 'kk', name: 'Қазақша', flag: 'flags/kz.svg' },
+    { code: 'ky', name: 'Кыргызча', flag: 'flags/kg.svg' },
+    { code: 'uz', name: "O'zbek", flag: 'flags/uz.svg' }
   ];
 
   constructor(
     private translationService: TranslationService,
-    @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
-  ngOnInit(): void {
-    const defaultLang = { code: 'en', name: 'English', flag: '🇬🇧' };
-    let savedLang = defaultLang;
-
-    if (isPlatformBrowser(this.platformId)) {
-      const savedLangStr = localStorage.getItem('lang');
-      if (savedLangStr) {
-        savedLang = JSON.parse(savedLangStr);
-      }
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (!(event.target as HTMLElement).closest('app-language-selector')) {
+      this.closeDropdown();
     }
+  }
 
-    this.selectedLanguage.set(this.languages.find(l => l.code === savedLang.code) || null);
+  ngOnInit(): void {
+    this.translationService.getCurrentLanguage().subscribe(lang => {
+      this.currentLanguage.set(this.languages.find(l => l.code === lang.code) || this.languages[0]);
+    });
+  }
+
+  ngOnDestroy(): void { }
+
+  toggleDropdown() {
+    this.isOpen = !this.isOpen;
+  }
+
+  closeDropdown() {
+    this.isOpen = false;
   }
 
   selectLanguage(lang: Language): void {
     this.translationService.setLanguage(lang);
-    this.isOpen = false;
-    this.selectedLanguage.set(lang);
+    this.closeDropdown();
+    this.currentLanguage.set(lang);
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { StepperService } from '../../../../../services/stepper.service';
+import { StepperService } from '../../../../../core/services/stepper.service';
 import { TranslationService } from '../../../../../core/i18n/translation.service';
 import { Translations } from '../../../../../core/i18n/translation.types';
 

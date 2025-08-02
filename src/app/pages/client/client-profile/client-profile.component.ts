@@ -2,28 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from '../../../components/header/header.component';
-import { HeaderService } from '../../../services/header.service';
+import { HeaderService } from '../../../core/services/header.service';
 
 interface Order {
-    date: string;
-    service: string;
-    provider: string;
-    status: string;
-    amount: string;
+  date: string;
+  service: string;
+  provider: string;
+  status: string;
+  amount: string;
 }
 
 interface Activity {
-    type: string;
-    title: string;
-    status: string;
-    time: string;
+  type: string;
+  title: string;
+  status: string;
+  time: string;
 }
 
 @Component({
-    selector: 'app-client-profile',
-    standalone: true,
-    imports: [CommonModule, RouterModule],
-    template: `
+  selector: 'app-client-profile',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  template: `
     <div class="relative flex size-full min-h-screen flex-col justify-between overflow-x-hidden">
       <div class="flex-1">
         <main class="p-4">
@@ -112,82 +112,82 @@ interface Activity {
   `
 })
 export class ClientProfileComponent implements OnInit {
-    orders: Order[] = [
-        {
-            date: 'May 20, 2024',
-            service: 'Plumbing Service',
-            provider: 'John Smith',
-            status: 'Completed',
-            amount: '$150.00'
-        },
-        {
-            date: 'June 5, 2024',
-            service: 'House Painting',
-            provider: 'Emily White',
-            status: 'Scheduled',
-            amount: '$850.00'
-        },
-        {
-            date: 'April 15, 2024',
-            service: 'Gardening',
-            provider: 'Michael Brown',
-            status: 'Cancelled',
-            amount: '$0.00'
-        }
-    ];
-
-    activities: Activity[] = [
-        {
-            type: 'completed',
-            title: 'Plumbing Service',
-            status: 'Completed',
-            time: '3d ago'
-        },
-        {
-            type: 'review',
-            title: 'Electrical Repair',
-            status: 'Reviewed',
-            time: '5d ago'
-        },
-        {
-            type: 'inProgress',
-            title: 'Landscaping',
-            status: 'In Progress',
-            time: '1w ago'
-        }
-    ];
-
-    constructor(private headerService: HeaderService) { }
-
-    ngOnInit() {
-        this.headerService.setTitle('Dashboard');
-        this.headerService.setShowBackButton(false);
+  orders: Order[] = [
+    {
+      date: 'May 20, 2024',
+      service: 'Plumbing Service',
+      provider: 'John Smith',
+      status: 'Completed',
+      amount: '$150.00'
+    },
+    {
+      date: 'June 5, 2024',
+      service: 'House Painting',
+      provider: 'Emily White',
+      status: 'Scheduled',
+      amount: '$850.00'
+    },
+    {
+      date: 'April 15, 2024',
+      service: 'Gardening',
+      provider: 'Michael Brown',
+      status: 'Cancelled',
+      amount: '$0.00'
     }
+  ];
 
-    getStatusClass(status: string): string {
-        const baseClasses = 'rounded-full px-3 py-1 text-xs font-semibold';
-        switch (status) {
-            case 'Completed':
-                return `${baseClasses} bg-[var(--status-completed-bg)] text-[var(--status-completed)]`;
-            case 'Scheduled':
-                return `${baseClasses} bg-[var(--status-scheduled-bg)] text-[var(--status-scheduled)]`;
-            case 'Cancelled':
-                return `${baseClasses} bg-[var(--status-cancelled-bg)] text-[var(--status-cancelled)]`;
-            default:
-                return baseClasses;
-        }
+  activities: Activity[] = [
+    {
+      type: 'completed',
+      title: 'Plumbing Service',
+      status: 'Completed',
+      time: '3d ago'
+    },
+    {
+      type: 'review',
+      title: 'Electrical Repair',
+      status: 'Reviewed',
+      time: '5d ago'
+    },
+    {
+      type: 'inProgress',
+      title: 'Landscaping',
+      status: 'In Progress',
+      time: '1w ago'
     }
+  ];
 
-    getActivityIcon(type: string): string {
-        switch (type) {
-            case 'completed':
-                return 'M128,24a104,104,0,1,0,104,104A104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z';
-            case 'review':
-                return 'M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z';
-            case 'inProgress':
-                return 'M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z';
-            default:
-                return '';
-        }
+  constructor(private headerService: HeaderService) { }
+
+  ngOnInit() {
+    this.headerService.setTitle('Dashboard');
+    this.headerService.setShowBackButton(false);
+  }
+
+  getStatusClass(status: string): string {
+    const baseClasses = 'rounded-full px-3 py-1 text-xs font-semibold';
+    switch (status) {
+      case 'Completed':
+        return `${baseClasses} bg-[var(--status-completed-bg)] text-[var(--status-completed)]`;
+      case 'Scheduled':
+        return `${baseClasses} bg-[var(--status-scheduled-bg)] text-[var(--status-scheduled)]`;
+      case 'Cancelled':
+        return `${baseClasses} bg-[var(--status-cancelled-bg)] text-[var(--status-cancelled)]`;
+      default:
+        return baseClasses;
     }
+  }
+
+  getActivityIcon(type: string): string {
+    switch (type) {
+      case 'completed':
+        return 'M128,24a104,104,0,1,0,104,104A104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z';
+      case 'review':
+        return 'M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z';
+      case 'inProgress':
+        return 'M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z';
+      default:
+        return '';
+    }
+  }
 }

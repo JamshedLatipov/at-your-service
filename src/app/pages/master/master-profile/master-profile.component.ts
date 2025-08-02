@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HeaderService } from '../../../services/header.service';
+import { HeaderService } from '../../../core/services/header.service';
 
 @Component({
     selector: 'app-master-profile',
